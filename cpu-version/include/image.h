@@ -1,0 +1,19 @@
+#ifndef _IMAGE_H_
+#define _IMAGE_H_
+
+#include "core.h"
+
+class ImageRGB {
+ public:
+  ImageRGB() = delete;
+  ImageRGB(int width, int height);
+  [[nodiscard]] float getAspectRatio() const;
+  [[nodiscard]] Vec2i getResolution() const;
+  void setPixel(int x, int y, const Vec3f &value);
+  void writeImgToFile(const std::string &file_name);
+ private:
+  std::vector<Vec3f> data;
+  Vec2i resolution;
+};
+
+#endif
